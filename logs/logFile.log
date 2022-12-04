@@ -2189,3 +2189,17 @@ Stack trace:
 #1 /var/www/public/index.php(25): app::run()
 #2 {main}
   thrown in /var/www/controller/autoload.php on line 21
+[04-Dec-2022 13:40:09 Europe/Kaliningrad] PHP Warning:  require(/var/www/public/../model/img/index.php): Failed to open stream: No such file or directory in /var/www/controller/autoload.php on line 21
+[04-Dec-2022 13:40:09 Europe/Kaliningrad] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/public/../model/img/index.php' (include_path='.:/usr/local/lib/php') in /var/www/controller/autoload.php:21
+Stack trace:
+#0 /var/www/controller/app.php(44): autoload('img')
+#1 /var/www/public/index.php(25): app::run()
+#2 {main}
+  thrown in /var/www/controller/autoload.php on line 21
+[04-Dec-2022 13:40:09 Europe/Kaliningrad] PHP Warning:  require(/var/www/public/../model/img/index.php): Failed to open stream: No such file or directory in /var/www/controller/autoload.php on line 21
+[04-Dec-2022 13:40:09 Europe/Kaliningrad] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/public/../model/img/index.php' (include_path='.:/usr/local/lib/php') in /var/www/controller/autoload.php:21
+Stack trace:
+#0 /var/www/controller/app.php(44): autoload('img')
+#1 /var/www/public/index.php(25): app::run()
+#2 {main}
+  thrown in /var/www/controller/autoload.php on line 21
