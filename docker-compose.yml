@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./:/var/www
+            - ./_docker/nginx/conf.d:/etc/nginx/conf.d
+        ports:
+            - "8190:80"
+        depends_on:
+            - app
+        container_name: project_nginx
+    app:
+        build:
+            context: .
+            dockerfile: _docker/app/Dockerfile
+        links:
+            - mysql
+        volumes:
+            - ./:/var/www
+        container_name: project_app
+    mysql:
+        image: mysql:latest
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./_docker/logs/mysql:/var/log/mysql
+            - ./_docker/data/db:/var/lib/mysql
+        # задаем пароль для root пользователя
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: sait
+    phpmyadmin:
+        image: phpmyadmin
+        links:
+            - mysql:db
+        ports:
+            - "8000:80"
+        environment:
+            - PMA_USER=root
+            - PMA_PASSWORD=password
+            - PHP_UPLOAD_MAX_FILESIZE=100MB
