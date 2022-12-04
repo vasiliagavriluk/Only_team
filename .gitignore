@@ -1,2 +1,2 @@
-_docker/data/db/mysql.sock
-.idea
+/_docker/data/db/mysql.sock
+/.idea
